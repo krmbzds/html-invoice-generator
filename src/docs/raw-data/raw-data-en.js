@@ -1,243 +1,253 @@
-var ib_invoice_data = function(){/*
+var ib_raw_data = function(){/*
+var ib_invoice_data = function(){\/*
 #=========================================================================================================
 
 
 ### Company data
 
 [{company_name}]
-Dino Store
+|company_name|
 
 [{company_address}]
-227 Cobblestone Road
+|company_address|
 
 [{company_city_zip_state}]
-30000 Bedrock, Cobblestone County
+|company_city_zip_state|
 
 [{company_phone_fax}]
-+555 7 789-1234
+|company_phone_fax|
 
 [{company_email_web}]
-http://dinostore.bed | hello@dinostore.bed
+|company_email_web|
 
 [{payment_info1}]
-Payment details:
+|payment_info1|
 
 [{payment_info2}]
-ACC:123006705
+|payment_info2|
 
 [{payment_info3}]
-IBAN:US100000060345
+|payment_info3|
 
 [{payment_info4}]
-SWIFT:BOA447
+|payment_info4|
 
 [{payment_info5}]
-
+|payment_info5|
 
 [{issue_date_label}]
-Issue Date:
+|issue_date_label|
 
 [{issue_date}]
-
+|issue_date|
 
 [{net_term_label}]
-Net:
+|net_term_label|
 
 [{net_term}]
-21
+|net_term|
 
 [{due_date_label}]
-Due Date:
+|due_date_label|
 
 [{due_date}]
-
+|due_date|
 
 [{currency_label}]
-Currency:
+|currency_label|
 
 [{currency}]
-USD
+|currency|
 
 [{po_number_label}]
-P.O. #
+|po_number_label|
 
 [{po_number}]
-1/3-147
+|po_number|
 
 [{bill_to_label}]
-Bill to:
+|bill_to_label|
 
 [{client_name}]
-Slate Rock and Gravel Company
+|client_name|
 
 [{client_address}]
-222 Rocky Way
+|client_address|
 
 [{client_city_zip_state}]
-30000 Bedrock, Cobblestone County
+|client_city_zip_state|
 
 [{client_phone_fax}]
-+555 7 123-5555
+|client_phone_fax|
 
 [{client_email}]
-fred@slaterockgravel.bed
+|client_email|
 
 [{client_other}]
-Attn: Fred Flintstone
+|client_other|
 
 [{invoice_title}]
-INVOICE
+|invoice_title|
 
 [{invoice_number}]
-#1
+|invoice_number|
+
+
+### Column names
 
 [{item_row_number_label}]
-
+|item_row_number_label|
 
 [{item_description_label}]
-Item
+|item_description_label|
 
 [{item_quantity_label}]
-Quantity
+|item_quantity_label|
 
 [{item_price_label}]
-Price
+|item_price_label|
 
 [{item_discount_label}]
-Discount
+|item_discount_label|
 
 [{item_tax_label}]
-Tax
+|item_tax_label|
 
 [{item_line_total_label}]
-Linetotal
+|item_line_total_label|
 
 [{item_row_number}]
-
+|item_row_number|
 
 [{item_description}]
-
+|item_description|
 
 [{item_quantity}]
-
+|item_quantity|
 
 [{item_price}]
-
+|item_price|
 
 [{item_discount}]
-
+|item_discount|
 
 [{item_tax}]
-
+|item_tax|
 
 [{item_line_total}]
+|item_line_total|
 
+
+### Summary of totals
 
 [{amount_subtotal_label}]
-Subtotal:
+|amount_subtotal_label|
 
 [{amount_subtotal}]
-
+|amount_subtotal|
 
 [{tax_name}]
-Tax:
+|tax_name|
 
 [{tax_value}]
-
+|tax_value|
 
 [{amount_total_label}]
-Total:
+|amount_total_label|
 
 [{amount_total}]
-
+|amount_total|
 
 [{amount_paid_label}]
-Paid:
+|amount_paid_label|
 
 [{amount_due_label}]
-Amount Due:
+|amount_due_label|
 
 [{amount_due}]
-
+|amount_due|
 
 [{terms_label}]
-Terms & Notes
+|terms_label|
 
 [{terms}]
-Fred, thank you very much. We really appreciate your business.<br />Please send payments before the due date.
+|terms|
 
 
 ### Settings
 
 # One of 'dd/mm/yyyy', 'dd-mm-yyyy', 'dd.mm.yyyy', 'mm/dd/yyyy', 'mm-dd-yyyy', 'mm.dd.yyyy', 'yyyy mm dd', 'yyyy-mm-dd', 'yyyy.mm.dd'
 [date_format]
-mm/dd/yyyy
+|date_format|
 
 # One of 'left' or 'right'
 [currency_position]
-left
+|currency_position|
 
 [show_currency]
-true
+|show_currency|
 
 # One of '0,000.00', '0 000.00', '0000.00', '0.000,00', '0 000,00', '0000,00'
 [number_format]
-0,000.00
+|number_format|
 
 [default_columns]
-item_row_number,item_description,item_quantity,item_price,item_discount,item_tax,item_line_total
+|default_columns|
 
 [default_quantity]
-1
+|default_quantity|
 
 [default_price]
-0
+|default_price|
 
 [default_discount]
-0
+|default_discount|
 
 [default_tax]
-0
+|default_tax|
 
 [default_number_rows]
-3
+|default_number_rows|
 
 [auto_calculate_dates]
-true
+|auto_calculate_dates|
 
 [load_items]
-true
+|load_items|
 
 [invoicebus_fineprint]
-true
+|invoicebus_fineprint|
+
+[lang]
+|lang|
 
 
 ### Items (in this order item_description@||@item_quantity@||@item_price@||@item_discount@||@item_tax)
 
 [items]
-Frozen Brontosaurus Ribs@||@2@||@120@||@@||@2
-Mammoth Chops@||@14@||@175@||@-10@||@5
-@||@@||@@||@@||@
+|items|
 
 
 ### Custom data (in format field_name@||@field_value)
 
 # Document custom data
 [document_custom]
-
+|document_custom|
 
 # Client custom data
 [client_custom]
-
+|client_custom|
 
 
 ### Logo
 
-#base64 encoded data URI of PNG image
+# base64 encoded data URI of PNG image
 [{company_logo}]
+|company_logo|
 
 
 
 
 #=========================================================================================================
+*\/}
 */}

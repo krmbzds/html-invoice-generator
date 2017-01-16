@@ -123,6 +123,10 @@ ib-div {
   content: "\f110";
 }
 
+.fa-fw:before {
+  content: "\f115";
+}
+
 .fa-flash:before,
 .fa-bolt:before {
   content: "\f0e7";
@@ -203,7 +207,7 @@ html {
 }
 
 .modal-body {
-  height:450px;
+  height:470px;
   padding:0;
 }
 
@@ -305,10 +309,10 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
     line-height: 1.4em;
 
     > ib-span {
-      opacity:.6;
+      @include opacity(.6);
 
       &:hover {
-        opacity:1;
+        @include opacity(1);
       }
     }
 
@@ -436,7 +440,7 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
     position:absolute !important;
     top:-2px !important;
     left:-2px !important;
-    opacity:0 !important;
+    @include opacity(0);
   }
 }
 
@@ -546,6 +550,16 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
 
 .active .ib_currencies_item ib-span {
   color:white;
+}
+
+.ib_show_currency {
+  padding-top: 10px;
+
+  label {
+    position: relative;
+    top: -2px;
+    margin-left: 5px;
+  }
 }
 
 .ib_hide_column {
@@ -747,6 +761,21 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
         margin-right: 3px;
       }
 
+      &.ib_open_data {
+        position: relative;
+
+        input[type="file"] {
+          background: transparent !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          @include opacity(0);
+          cursor: pointer;
+        }
+      }
+
       &.ib_save_online {
         margin-right: 0;
       }
@@ -762,14 +791,14 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
       position:relative;
       top:8px;
       color:#888;
-      opacity: .7;
+      @include opacity(.7);
       cursor: help;
       margin-left: 20px;
       width:18px;
       text-align:center;
 
       &:hover {
-        opacity: 1;
+        @include opacity(1);
       }
     }
 
@@ -796,6 +825,32 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
 
 .ib_item_percentage:after {
   content: "%";
+}
+
+.ibcl_item_description,
+.ibcl_item_quantity,
+.ibcl_item_price,
+.ibcl_item_discount,
+.ibcl_item_tax,
+.ibcl_item_line_total {
+
+  &:empty {
+    min-width: 20px !important;
+    min-height: 18px !important;
+  }
+}
+
+.ibcl_item_price,
+.ibcl_item_line_total,
+.ibcl_amount_paid {
+
+  &.add_currency_left:before {
+    content: attr(data-currency);
+  }
+
+  &.add_currency_right:after {
+    content: attr(data-currency);
+  }
 }
 
 [data-ibcl-id="tax_value"]:before {
@@ -926,17 +981,7 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
   }
 }
 
-@media only screen and (max-width: 700px) {
-
-  .ib_invoice_commands {
-
-    .ib_hide_small {
-      display: none;
-    }
-  }
-}
-
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 850px) {
 
   .ib_invoice_commands {
 
@@ -950,6 +995,23 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"] {
       .fa {
         margin-right: 0 !important;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 460px) {
+
+  .ib_invoice_commands {
+    padding: 15px 0 15px 0 !important;
+
+    .ib_clear_xsmall {
+      display: block;
+      clear: both;
+    }
+
+    .ib_pull_right {
+      float: left !important;
+      margin-top: 5px !important;
     }
   }
 }
